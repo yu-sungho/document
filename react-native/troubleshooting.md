@@ -7,4 +7,6 @@
         : node_modules/react-native/packager/packager.sh --port=8999
     - 실질적으로 android-studio에서 소스를 수정한것을 build 돌리는것은 아닌거 같음.
       react-native run-android 를 실행함으로써 build가 진행되는거 같음.
-      
+  3. 자동 android-emulator reload
+    - /Users/yusungho/Library/Android/sdk/platform-tools/adb shell input keyevent 82
+  4. 
