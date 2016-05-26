@@ -9,4 +9,4 @@
       react-native run-android 를 실행함으로써 build가 진행되는거 같음.
   3. 자동 android-emulator reload
     - /Users/yusungho/Library/Android/sdk/platform-tools/adb shell input keyevent 82
-  4. 
+  4. console.log -> /Users/yusungho/Library/Android/sdk/platform-tools/adb logcat *:S ReactNative:V ReactNativeJS:V
