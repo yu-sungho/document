@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 
 import MultipleChoice from 'react-native-multiple-choice'
+import AutoLink from 'react-native-autolink';
 
 var Dimensions = require('Dimensions');
 var windowSize = Dimensions.get('window');
@@ -61,6 +62,10 @@ class SampleApp extends Component {
       .done();
   }
 
+  _selectOption() {
+    alert("test");
+  }
+
   render() {
   var _scrollView: ScrollView;
     if (!this.state.loaded) {
@@ -68,31 +73,25 @@ class SampleApp extends Component {
     }
 
     return (
-     <View>
-      <ScrollView style={{backgroundColor:'#a9a9a9', flex:1}}
+      <View>
+      <ScrollView style={{backgroundColor:'#FFFFFF', height:500}}
           ref={(scrollView) => { _scrollView = scrollView; }}
           automaticallyAdjustContentInsets={true}
           onScroll={() => { console.log('onScroll!'); }}
           scrollEventThrottle={200}
           style={styles.scrollView}>
           <View>
-              <View style={{padding:20,flex:1, flexDirection:'column'}}>
-                <Text style={{flex:1, fontSize:25, marginBottom:10}}>Search</Text>
-                <TextInput style={{flex:1, backgroundColor:'#FFFFFF'}} placeholder="Hello" />
-              </View>
-              <View style={{ padding:20,backgroundColor:'#a9a9a9', flex:1, flexDirection:'column'}}>
-                <Text style={{flex:1, fontSize:25}}>WorkitemType</Text>
-                    <MultipleChoice
-                    style={{backgroundColor:'#FFFFFF'}}
-                    options={this.state.resultData}
-                    renderRow={this.renderMovie}
-                    maxSelectedOptions={5}
-                    onSelection={(option)=>alert(option + ' was selected!')}
-                    />
+              <View style={{ padding:20,backgroundColor:'#FFFFFF'}}>
+ <TouchableOpacity
+          activeOpacity={1}
+          onPress={()=>{this._selectOption()}}> 
+                <AutoLink style={{fontSize:25}}
+                text="WorkitemTypesdfsd http://stackoverflow.com/questions/32634352/react-native-android-build-failed fsdfsdfsdfsdfsdfsdfsd http://daum.net fsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfWorkitemTypesdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf"/>
+                </TouchableOpacity>
               </View>
           </View>
-      </ScrollView>
-      </View>
+       </ScrollView>
+       </View>
     );
   }
 
@@ -102,37 +101,6 @@ class SampleApp extends Component {
         <Text>
           Loading movies...
         </Text>
-      </View>
-    );
-  }
-  renderIndicator() {
-    if (this._isSelected(option)) {
-        return (
-            <Image
-                style={Styles.optionIndicatorIcon}
-                source={require('./assets/images/check.png')}
-            />
-        );
-    }
-  }
-
-  renderMovie(movie) {
-    return (
-      <View style={styles.container}>
-      <TouchableOpacity
-          activeOpacity={disabled ? 1 : 0.7}
-          onPress={!disabled ? ()=>{this._selectOption(option)} : null}
-      >
-        <Image
-          source={{uri: movie.posters.thumbnail}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
-        </View>
-        <View style={styles.optionIndicator}>{this.renderIndicator()}</View>
-    </TouchableOpacity>
       </View>
     );
   }
@@ -165,7 +133,7 @@ var styles = StyleSheet.create({
     paddingTop: 20,
   },  
   scrollView: {
-    backgroundColor: '#a9a9a9',
+    backgroundColor: '#FFFFFF',
     height:windowSize.height
   },
   horizontalScrollView: {
